@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chicken Dinner</title>
+
+</head>
+<body>
+    <h1>YOU WIN!!!!!</h1>
+    <img src="{{ url_for('static', filename='img/winner.png') }}" style="width:500px;">
+    <p>Hitpoints: {{session['hitpoints']}}</p>
+    <p>Gold: {{session['gold']}}</p>
+    <div> <!-- the section clears the session to start a new game-->
+        <form action="/destroy_session" method="post">
+            <input type="submit" value="New Game">
+        </form>
+    </div>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ninja Gold!!</title>
+        <!-- linking a css style sheet -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/style.css') }}">
+    <!-- linking a javascript file
+    <script type="text/javascript" src="{{ url_for('static', filename='js/my_script.js') }}"></script>
+     linking an image
+    <img src="{{ url_for('static', filename='img/my_img.png') }}"> -->
+</head>
+<body>
+    <h1>Get 100 Gold Before You Run Out of Hitpoints!</h1>
+    <div id="gold_top_row"> <! -- the top row that will display the gold amount-->
+        <div>Your Gold:</div>
+        <div id="gold_amount">{{session['gold']}}</div>
+        <div>Hitpoints:</div>
+        <div class="hitpoints">{{session['hitpoints']}}</div>
+        <div id="help"> <!-- beg for more hitpoints-->
+            <form action="/more_hp" method="post">
+            <input type="submit" value="I'm So Weak, Please Help Me!">
+        </form>
+    </div>
+    </div>
+
+    <div id="building_row"> <!-- the section that will display each of the forms for the different buildings -->
+        <div class="building_forms">
+            <form action="/process_money" method="post">
+                <h1>Farm</h1>
+                <p>Earn 10-20 Gold</p>
+                <p>Costs 10 Hitpoints</p>
+                <br>
+                <input type="hidden" name="building" value="farm">
+                <input type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <div class="building_forms">
+            <form action="/process_money" method="post">
+                <h1>Cave</h1>
+                <p>Earn 5-10 Gold</p>
+                <p>Costs 5 Hitpoints</p>
+                <br>
+                <input type="hidden" name="building" value="cave">
+                <input type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <div class="building_forms">
+            <form action="/process_money" method="post">
+                <h1>House</h1>
+                <p>Earn 2-5 Gold</p>
+                <p>Costs 2 Hitpoints</p>
+                <br>
+                <input type="hidden" name="building" value="house">
+                <input type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <div class="building_forms">
+            <form action="/process_money" method="post">
+                <h1>Casino</h1>
+                <p>Earns or Takes 0-50 Gold</p>
+                <p>Costs 5 Hitpoints</p>
+                <br>
+                <input type="hidden" name="building" value="casino">
+                <input type="submit" value="Find Gold!">
+            </form>
+        </div>
+    </div>
+
+    <div> <!-- this section displays all the activities and color codes wins vs losses in accounting style -->
+        <div>
+            <p>Activities:</p>
+        </div>
+        <div id="activities_box">
+            {{activity_log|safe}}
+        </div>
+    </div>
+
+    <div> <!-- the section clears the session to start a new game-->
+        <form action="/destroy_session" method="post">
+            <input type="submit" value="New Game">
+        </form>
+    </div>
+
+</body>
+</html>

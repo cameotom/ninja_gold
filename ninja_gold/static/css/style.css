@@ -1,0 +1,59 @@
+* {
+    padding: 0;
+    margin: 10px;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+h1 {
+    margin: 10px;
+}
+
+#gold_top_row {
+    align-items: center;
+    align-content: center;
+    display: flex;
+    margin: 15px 20px;
+}
+
+#gold_amount {
+    border: 1px solid black;
+    margin-left: 0px;
+    padding: 5px;
+}
+
+.hitpoints {
+    border: 1px solid black;
+    margin-left: 0px;
+    padding: 5px;
+}
+
+#building_row {
+    align-items: center;
+    display: flex;
+}
+
+.building_forms {
+    align-items: center;
+    display: flex;
+    margin: 10px 20px;
+    border: 1px solid black;
+    padding: 10px;
+    width: 250px;
+}
+
+#activities_box {
+    width: 900px;
+    height: 200px;
+    border: 1px solid black;
+    overflow-y:auto;
+    margin: 10px 20px;
+}
+
+.wins {
+    color:  green;
+}
+
+.losses {
+    color: red;
+}
